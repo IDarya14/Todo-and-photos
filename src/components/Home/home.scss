@@ -17,10 +17,17 @@
     a {
       color: black;
       text-decoration: none;
+      transition: all 0.3s;
       &:hover {
         color: rgb(92, 135, 220);
         transition: all 0.3s;
       }
     }
+  }
+  ._hover {
+    font-size: 18px;
+    color: rgb(3, 66, 161);
+    text-decoration: underline;
+    transition: all 0.5s;
   }
 }
