@@ -17,9 +17,6 @@ export const Photos = () => {
     setId(e.target.value);
   };
 
-  console.log('id', id);
-  console.log('currentId', currentId);
-
   const hendalGetPhotos = () => {
     if (currentId === id) return;
     getPhotos(id).then((res) => setPhotoList(res.data));
