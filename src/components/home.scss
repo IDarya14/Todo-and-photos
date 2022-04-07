@@ -1,0 +1,25 @@
+.home {
+  &__container {
+    width: 900px;
+    margin: 0 auto;
+  }
+  &__nav {
+    background-color: rgb(230, 220, 220);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin: 40px auto;
+  }
+  &__item {
+    padding: 10px;
+    margin: 0 20px;
+    a {
+      color: black;
+      text-decoration: none;
+      &:hover {
+        color: rgb(92, 135, 220);
+      }
+    }
+  }
+}

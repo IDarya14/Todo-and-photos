@@ -1,0 +1,53 @@
+.photos {
+  &__container {
+    width: 500px;
+    margin: 0 auto;
+    .photo-list {
+      &__item {
+        margin-bottom: 20px 0;
+        border-bottom: 1px solid gray;
+      }
+      &__title {
+        font-size: 20px;
+      }
+      &__img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto 20px auto;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__text {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  &__input {
+    width: 90px;
+    height: 20px;
+    padding: 7px;
+  }
+  &__err {
+    font-size: 13px;
+    color: red;
+  }
+  &__button {
+    cursor: pointer;
+    padding: 7px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: rgb(143, 196, 236);
+  }
+  ._disable {
+    opacity: 0.6;
+  }
+}

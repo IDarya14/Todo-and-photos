@@ -1,0 +1,43 @@
+.one-todo {
+  &__container {
+    width: 500px;
+    margin: 50px auto;
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+  }
+  &__item {
+    display: flex;
+    margin: 10px 0;
+    font-size: 20px;
+  }
+  &__item-edit {
+    display: flex;
+  }
+  &__text {
+    color: rgb(108, 105, 105);
+    padding: 5px 10px;
+  }
+  &__value {
+    padding: 5px 10px;
+  }
+  &__input {
+    padding: 5px 10px;
+  }
+  &__button {
+    cursor: pointer;
+    margin: 0 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(134, 178, 232);
+    padding: 5px;
+  }
+  &__back {
+    cursor: pointer;
+    font-size: 50px;
+    position: absolute;
+    top: 15px;
+    left: 296px;
+  }
+}

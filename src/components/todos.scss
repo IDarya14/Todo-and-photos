@@ -1,0 +1,95 @@
+.todos {
+  &__container {
+    width: 900px;
+    margin: 0 auto;
+
+    .form {
+      width: 500px;
+      margin: 0 auto;
+      display: flex;
+
+      align-items: center;
+
+      &__input {
+        margin: 5px;
+        height: 30px;
+        width: 400px;
+        padding: 5px 15px;
+        &:focus::-webkit-input-placeholder {
+          color: transparent;
+        }
+        &:hover {
+        }
+      }
+      &__button {
+        height: 44px;
+        width: 90px;
+        cursor: pointer;
+        border: 1px solid grey;
+        border-radius: 5px;
+        background-color: rgb(157, 189, 242);
+      }
+    }
+    .sort {
+      width: 500px;
+      display: flex;
+      margin: 0 auto;
+      justify-content: space-around;
+
+      &__item {
+        text-align: center;
+        font-size: 17px;
+        width: 60px;
+        padding: 5px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover {
+          background-color: rgb(240, 231, 231);
+        }
+        &._active {
+          background-color: rgb(240, 231, 231);
+        }
+      }
+    }
+    .todo {
+      margin-top: 15px;
+      width: 900px;
+      &__list {
+        width: 550px;
+        margin: 0 auto;
+      }
+      &__item {
+        display: flex;
+        padding: 10px 25px;
+        justify-content: space-between;
+
+        border: 1px solid gray;
+        margin: 10px 0;
+        &._completed {
+          background-color: rgb(234, 227, 227);
+        }
+      }
+      &__value {
+        padding: 5px 10px;
+        &._completed {
+          text-decoration: line-through;
+        }
+      }
+      &__wrap {
+        display: flex;
+        align-items: center;
+      }
+      &__chkbox {
+        cursor: pointer;
+      }
+      &__delete {
+        cursor: pointer;
+        color: rgb(243, 100, 100);
+        &:hover {
+          color: rgb(247, 0, 0);
+        }
+      }
+    }
+  }
+}
