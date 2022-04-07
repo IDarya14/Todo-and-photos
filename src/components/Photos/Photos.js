@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getPhotos } from '../crud/crud';
+import { getPhotos } from '../../crud/crud';
 import './photos.scss';
 
 export const Photos = () => {
@@ -8,16 +8,16 @@ export const Photos = () => {
   const [err, setErr] = useState('');
   const [photoList, setPhotoList] = useState();
 
-  const chengeHendler = (e) => {
+  const changeHandler = (e) => {
     if (e.target.value > 100) {
-      return setErr('Число не может быть больше 100');
+      return setErr('is cannot be greater than 100');
     } else {
       setErr('');
     }
     setId(e.target.value);
   };
 
-  const hendalGetPhotos = () => {
+  const handalGetPhotos = () => {
     if (currentId === id) return;
     getPhotos(id).then((res) => setPhotoList(res.data));
     setCurrentId(id);
@@ -33,7 +33,7 @@ export const Photos = () => {
                 <input
                   type="number"
                   value={id}
-                  onChange={chengeHendler}
+                  onChange={changeHandler}
                   className="photos__input"
                 />
                 <div className="photos__err">{err ? err : ''}</div>
@@ -42,7 +42,7 @@ export const Photos = () => {
                 className={`photos__button ${
                   currentId === id ? '_disable' : ''
                 }`}
-                onClick={hendalGetPhotos}
+                onClick={handalGetPhotos}
               >
                 Get Photos
               </div>

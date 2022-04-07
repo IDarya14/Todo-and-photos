@@ -4,7 +4,7 @@
     margin: 0 auto;
   }
   &__nav {
-    background-color: rgb(230, 220, 220);
+    background-color: rgb(175, 210, 245);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +19,7 @@
       text-decoration: none;
       &:hover {
         color: rgb(92, 135, 220);
+        transition: all 0.3s;
       }
     }
   }

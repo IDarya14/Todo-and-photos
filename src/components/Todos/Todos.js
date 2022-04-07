@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, changeTodo } from '../redux/action';
+import { addTodo, changeTodo } from '../../redux/action';
 import { useNavigate } from 'react-router';
 import './todos.scss';
 
@@ -11,11 +11,11 @@ export const Todos = () => {
   const todos = useSelector((state) => state.todoReducer.todos);
   const navigate = useNavigate();
 
-  const chengeHendler = (e) => {
+  const changeHendler = (e) => {
     setValue(e.target.value);
   };
 
-  const submitHendler = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
     const newTodo = {
       value: value,
@@ -27,7 +27,7 @@ export const Todos = () => {
     setValue('');
   };
 
-  const chekboxHendler = (e, id) => {
+  const chekboxHandler = (e, id) => {
     e.stopPropagation();
     const index = todos.findIndex((elem) => elem.id === id);
     const arr = [...todos];
@@ -67,13 +67,13 @@ export const Todos = () => {
     <>
       <div className="todos">
         <div className="todos__container">
-          <form className="form" onSubmit={submitHendler}>
+          <form className="form" onSubmit={submitHandler}>
             <input
               type="text"
               className="form__input"
               placeholder="Введите название заметки..."
               value={value}
-              onChange={chengeHendler}
+              onChange={changeHendler}
             />
             <input className="form__button" type="submit" value="Submit" />
           </form>
@@ -99,17 +99,17 @@ export const Todos = () => {
           </div>
           <div className="todo">
             <ul className="todo__list">
-              {sortTodo(sort).map((elem) => {
+              {sortTodo(sort).map((elem, index) => {
                 return (
                   <div
                     className={`todo__item ${
                       elem.completed ? '_completed' : ''
                     }`}
-                    key={elem.id}
+                    key={index}
                     onClick={() => navigate(`/todos/${elem.id}`)}
                   >
                     <div className="todo__wrap">
-                      <div className="todo__count">{elem.id})</div>
+                      <div className="todo__count">{index + 1})</div>
                       <div
                         className={`todo__value ${
                           elem.completed ? '_completed' : ''
@@ -124,7 +124,7 @@ export const Todos = () => {
                         checked={elem.completed}
                         className="todo__chkbox"
                         onClick={(e) => e.stopPropagation()}
-                        onChange={(e) => chekboxHendler(e, elem.id)}
+                        onChange={(e) => chekboxHandler(e, elem.id)}
                       />
                       <div
                         className="todo__delete"

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
-import { changeTodo } from '../redux/action';
+import { changeTodo } from '../../redux/action';
 import './todoItem.scss';
 
 export const TodoItem = () => {
@@ -14,11 +14,11 @@ export const TodoItem = () => {
   const todo = todos.find((elem) => +elem.id === +id);
   console.log(id);
 
-  const hendalChange = (e) => {
+  const handalChange = (e) => {
     setValue(e.target.value);
   };
 
-  const clickHendler = () => {
+  const clickHandler = () => {
     const index = todos.findIndex((elem) => +elem.id === +id);
     const arr = [...todos];
     arr[index].value = value;
@@ -42,9 +42,9 @@ export const TodoItem = () => {
                 type="text"
                 className="one-todo__input"
                 value={value}
-                onChange={(e) => hendalChange(e)}
+                onChange={(e) => handalChange(e)}
               />
-              <div className="one-todo__button" onClick={clickHendler}>
+              <div className="one-todo__button" onClick={clickHandler}>
                 Edit
               </div>
             </div>

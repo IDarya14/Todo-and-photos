@@ -1,8 +1,8 @@
 import './App.css';
-import { Home } from './components/Home';
-import { Todos } from './components/Todos';
-import { Photos } from './components/Photos';
-import { TodoItem } from './components/TodoItem';
+import { Home } from './components/Home/Home';
+import { Todos } from './components/Todos/Todos';
+import { Photos } from './components/Photos/Photos';
+import { TodoItem } from './components/TodoItem/TodoItem';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
