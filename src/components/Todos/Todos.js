@@ -108,7 +108,7 @@ export const Todos = () => {
                     key={index}
                     onClick={() => navigate(`/todos/${elem.id}`)}
                   >
-                    <div className="todo__wrap">
+                    <div className="todo__wrapper">
                       <div className="todo__count">{index + 1})</div>
                       <div
                         className={`todo__value ${
