@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import { getPhotos } from '../crud/crud';
 import './photos.scss';
 
+// interface IPhotoList {
+  
+//   title: string;
+//   url: string;
+// }
+
 export const Photos = () => {
-  const [id, setId] = useState();
-  const [currentId, setCurrentId] = useState(null);
-  const [err, setErr] = useState('');
-  const [photoList, setPhotoList] = useState();
+  const [id, setId] = useState<number>();
+  const [currentId, setCurrentId] = useState<number>(null);
+  const [err, setErr] = useState<string>('');
+  const [photoList, setPhotoList] = useState<IPhotoList | undefined>();
 
   const chengeHendler = (e) => {
     if (e.target.value > 100) {

@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './home.scss';
 
-export const Home = ({ children }) => {
+interface IHomeProps {
+  children: React.ReactNode;
+}
+
+export const Home: React.FC<IHomeProps> = ({ children }) => {
   return (
     <div className="home">
       <div className="home__container">
