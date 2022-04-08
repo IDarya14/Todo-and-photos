@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addTodo, changeTodo } from '../../redux/action';
 import { useNavigate } from 'react-router';
-import { useTypeSelector } from '../customHooks/useTypeSelector';
+import { useTypeSelector } from '../../customHooks/useTypeSelector';
 import './todos.scss';
 
 interface ITodos {
@@ -18,20 +18,15 @@ export const Todos: React.FC = () => {
   const todos = useTypeSelector((state) => state.todoReducer.todos);
   const navigate = useNavigate();
 
-<<<<<<< HEAD:src/components/Todos.tsx
-  const chengeHendler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setValue(e.target.value);
   };
 
-  const submitHendler = (e: React.FormEvent): void => {
-=======
-  const changeHendler = (e) => {
-    setValue(e.target.value);
-  };
-
-  const submitHandler = (e) => {
->>>>>>> 181d1839b9f9651932a796ac9faee0795c0d9027:src/components/Todos/Todos.js
+  const submitHandler = (e: React.FormEvent): void => {
     e.preventDefault();
+    if (value === '') {
+      return;
+    }
     const newTodo: ITodos = {
       value: value,
       completed: false,
@@ -42,11 +37,7 @@ export const Todos: React.FC = () => {
     setValue('');
   };
 
-<<<<<<< HEAD:src/components/Todos.tsx
-  const chekboxHendler = (e: React.ChangeEvent, id: number): void => {
-=======
-  const chekboxHandler = (e, id) => {
->>>>>>> 181d1839b9f9651932a796ac9faee0795c0d9027:src/components/Todos/Todos.js
+  const chekboxHandler = (e: React.ChangeEvent, id: number): void => {
     e.stopPropagation();
     const index: number = todos.findIndex((elem: ITodos) => elem.id === id);
     const arr: ITodos[] = [...todos];
@@ -93,7 +84,7 @@ export const Todos: React.FC = () => {
               className="form__input"
               placeholder="Введите название заметки..."
               value={value}
-              onChange={changeHendler}
+              onChange={changeHandler}
             />
             <input className="form__button" type="submit" value="Submit" />
           </form>
@@ -119,11 +110,7 @@ export const Todos: React.FC = () => {
           </div>
           <div className="todo">
             <ul className="todo__list">
-<<<<<<< HEAD:src/components/Todos.tsx
-              {sortTodo(sort).map((elem: ITodos) => {
-=======
-              {sortTodo(sort).map((elem, index) => {
->>>>>>> 181d1839b9f9651932a796ac9faee0795c0d9027:src/components/Todos/Todos.js
+              {sortTodo(sort).map((elem: ITodos, index) => {
                 return (
                   <div
                     className={`todo__item ${

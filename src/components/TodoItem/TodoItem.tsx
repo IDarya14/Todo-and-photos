@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
-<<<<<<< HEAD:src/components/TodoItem.tsx
-import { changeTodo } from '../redux/action';
-import { useTypeSelector } from '../customHooks/useTypeSelector';
-=======
 import { changeTodo } from '../../redux/action';
->>>>>>> 181d1839b9f9651932a796ac9faee0795c0d9027:src/components/TodoItem/TodoItem.js
+import { useTypeSelector } from '../../customHooks/useTypeSelector';
 import './todoItem.scss';
 
 interface ITodos {
@@ -24,25 +20,15 @@ export const TodoItem: React.FC = () => {
   const { id } = useParams();
   const todo = todos.find((elem: ITodos) => elem?.id + '' === id);
 
-<<<<<<< HEAD:src/components/TodoItem.tsx
-  const hendalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
-  const clickHendler = (): void => {
+  const clickHandler = (): void => {
     const index: number = todos.findIndex(
       (elem: ITodos) => elem.id + '' === id
     );
     const arr: ITodos[] = [...todos];
-=======
-  const handalChange = (e) => {
-    setValue(e.target.value);
-  };
-
-  const clickHandler = () => {
-    const index = todos.findIndex((elem) => +elem.id === +id);
-    const arr = [...todos];
->>>>>>> 181d1839b9f9651932a796ac9faee0795c0d9027:src/components/TodoItem/TodoItem.js
     arr[index].value = value;
     dispatch(changeTodo(arr));
   };
