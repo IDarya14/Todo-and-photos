@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, compose } from 'redux';
 import { rootReducer } from './rootReducer';
 
 declare global {
@@ -8,7 +8,7 @@ declare global {
 }
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export default () => {
+export const store = () => {
   const store = createStore(rootReducer, composeEnhancers());
   return store;
 };
