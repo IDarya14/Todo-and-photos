@@ -62,7 +62,7 @@ export const Photos: React.FC = () => {
                 <>
                   <div className="photo-list__item">
                     <div className="photo-list__title">{elem.title}</div>
-                    <img src={elem.url} className="photo-list__img" />
+                    <img alt="" src={elem.url} className="photo-list__img" />
                   </div>
                 </>
               );
