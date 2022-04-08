@@ -8,7 +8,8 @@ declare global {
 }
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export default () => {
+const store = () => {
   const store = createStore(rootReducer, composeEnhancers());
   return store;
 };
+export default store;
