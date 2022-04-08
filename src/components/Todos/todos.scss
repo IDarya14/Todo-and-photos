@@ -27,7 +27,12 @@
         cursor: pointer;
         border: 1px solid grey;
         border-radius: 5px;
-        background-color: rgb(157, 189, 242);
+        background-color: rgb(186, 208, 244);
+        transition: all 0.3s;
+        &:hover {
+          background-color: rgb(112, 163, 244);
+          transition: all 0.3s;
+        }
       }
     }
     .sort {
@@ -44,8 +49,10 @@
         border: 1px solid gray;
         border-radius: 10px;
         cursor: pointer;
+        transition: all 0.3s;
         &:hover {
           background-color: rgb(240, 231, 231);
+          transition: all 0.3s;
         }
         &._active {
           background-color: rgb(240, 231, 231);
@@ -77,7 +84,14 @@
         }
       }
       &__wrap {
+        width: 50px;
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &__wrapper {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
       }
       &__chkbox {
@@ -86,8 +100,10 @@
       &__delete {
         cursor: pointer;
         color: rgb(243, 100, 100);
+        transition: all 0.3s;
         &:hover {
           color: rgb(247, 0, 0);
+          transition: all 0.3s;
         }
       }
     }
