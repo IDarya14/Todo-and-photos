@@ -1,15 +1,15 @@
 import './App.css';
 import { Home } from './components/Home';
 import { Todos } from './components/Todos';
-import { Photos } from './components/Photos/';
+import { Photos } from './components/Photos';
 import { TodoItem } from './components/TodoItem';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function App() {
+function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home>{}</Home>} />
         <Route
           path="/todos"
           element={
