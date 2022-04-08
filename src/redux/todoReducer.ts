@@ -25,7 +25,7 @@ const initialState: IInitialState = {
   todos: array ? array : [],
 };
 
-export default (state = initialState, action: IAction): IInitialState => {
+const todoReducer = (state = initialState, action: IAction): IInitialState => {
   switch (action.type) {
     case ADD_TODO:
       return { ...state, todos: [...state.todos, action.payload] };
@@ -35,3 +35,4 @@ export default (state = initialState, action: IAction): IInitialState => {
       return state;
   }
 };
+export default todoReducer;
