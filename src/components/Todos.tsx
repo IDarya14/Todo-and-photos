@@ -2,22 +2,29 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo, changeTodo } from '../redux/action';
 import { useNavigate } from 'react-router';
+import { useTypeSelector } from '../customHooks/useTypeSelector';
 import './todos.scss';
 
-export const Todos = () => {
-  const [value, setValue] = useState('');
-  const [sort, setSort] = useState(1);
+interface ITodos {
+  id: number;
+  value: string;
+  completed: boolean;
+}
+
+export const Todos: React.FC = () => {
+  const [value, setValue] = useState<string>('');
+  const [sort, setSort] = useState<number>(1);
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todoReducer.todos);
+  const todos = useTypeSelector((state) => state.todoReducer.todos);
   const navigate = useNavigate();
 
-  const chengeHendler = (e) => {
+  const chengeHendler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setValue(e.target.value);
   };
 
-  const submitHendler = (e) => {
+  const submitHendler = (e: React.FormEvent): void => {
     e.preventDefault();
-    const newTodo = {
+    const newTodo: ITodos = {
       value: value,
       completed: false,
       id: todos.length + 1,
@@ -27,10 +34,10 @@ export const Todos = () => {
     setValue('');
   };
 
-  const chekboxHendler = (e, id) => {
+  const chekboxHendler = (e: React.ChangeEvent, id: number): void => {
     e.stopPropagation();
-    const index = todos.findIndex((elem) => elem.id === id);
-    const arr = [...todos];
+    const index: number = todos.findIndex((elem: ITodos) => elem.id === id);
+    const arr: ITodos[] = [...todos];
     if (arr[index].completed === false) {
       arr[index].completed = true;
       dispatch(changeTodo(arr));
@@ -42,22 +49,23 @@ export const Todos = () => {
     }
   };
 
-  const deleteBtn = (e, id) => {
+  const deleteBtn = (e: React.MouseEvent, id: number): void => {
     e.stopPropagation();
-    const index = todos.findIndex((elem) => elem.id === id);
-    const arr = [...todos];
+    const index: number = todos.findIndex((elem: ITodos) => elem.id === id);
+    const arr: ITodos[] = [...todos];
     arr.splice(index, 1);
     dispatch(changeTodo(arr));
     localStorage.setItem('todos', JSON.stringify(arr));
   };
-  const sortTodo = () => {
+
+  const sortTodo = (sort: number): ITodos[] => {
     switch (sort) {
       case 1:
-        return [...todos].sort((a, b) => a.completed - b.completed);
+        return [...todos].sort((a: any, b: any) => a.completed - b.completed);
       case 2:
-        return todos.filter((elem) => elem.completed === false);
+        return todos.filter((elem: ITodos) => elem.completed === false);
       case 3:
-        return todos.filter((elem) => elem.completed === true);
+        return todos.filter((elem: ITodos) => elem.completed === true);
       default:
         return todos;
     }
@@ -99,7 +107,7 @@ export const Todos = () => {
           </div>
           <div className="todo">
             <ul className="todo__list">
-              {sortTodo(sort).map((elem) => {
+              {sortTodo(sort).map((elem: ITodos) => {
                 return (
                   <div
                     className={`todo__item ${

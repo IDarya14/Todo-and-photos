@@ -12,7 +12,7 @@ interface IItem {
 
 export const Photos: React.FC = () => {
   const [id, setId] = useState<number>();
-  const [currentId, setCurrentId] = useState<number>(null);
+  const [currentId, setCurrentId] = useState<number>();
   const [err, setErr] = useState<string>('');
   const [photoList, setPhotoList] = useState<IItem[] | undefined>();
 

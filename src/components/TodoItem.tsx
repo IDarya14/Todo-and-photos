@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 import { changeTodo } from '../redux/action';
+import { useTypeSelector } from '../customHooks/useTypeSelector';
 import './todoItem.scss';
 
-export const TodoItem = () => {
+interface ITodos {
+  id: number;
+  value: string;
+  completed: boolean;
+}
+
+export const TodoItem: React.FC = () => {
   const [value, setValue] = useState<string>('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const todos = useSelector((state) => state.todoReducer.todos);
+  const todos = useTypeSelector((state) => state.todoReducer.todos);
   const { id } = useParams();
-  const todo = todos.find((elem) => +elem.id === +id);
-  console.log(id);
+  const todo = todos.find((elem: ITodos) => elem?.id + '' === id);
 
-  const hendalChange = (e) => {
+  const hendalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
-  const clickHendler = () => {
-    const index = todos.findIndex((elem) => +elem.id === +id);
-    const arr = [...todos];
+  const clickHendler = (): void => {
+    const index: number = todos.findIndex(
+      (elem: ITodos) => elem.id + '' === id
+    );
+    const arr: ITodos[] = [...todos];
     arr[index].value = value;
     dispatch(changeTodo(arr));
   };
@@ -35,7 +43,7 @@ export const TodoItem = () => {
           <div className="one-todo__card">
             <div className="one-todo__item">
               <div className="one-todo__text">Задание:</div>
-              <div className="one-todo__value">{todo.value}</div>
+              <div className="one-todo__value">{todo?.value}</div>
             </div>
             <div className="one-todo__item-edit">
               <input
@@ -52,7 +60,7 @@ export const TodoItem = () => {
           <div className="one-todo__item">
             <div className="one-todo__text">Статус выполнения: </div>{' '}
             <div className="one-todo__value">
-              {todo.completed ? 'Выполнено' : 'Не выполнено'}
+              {todo?.completed ? 'Выполнено' : 'Не выполнено'}
             </div>
           </div>
         </div>
